@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Practice Chart JS</title>
+</head>
+<body>
+    <h1>Here is my first chart==>></h1>
+    <div>
+        <canvas style="max-width: 500px;width:80%;margin:0px auto;" id="chart2" width="400" height="400"></canvas>
+    </div>
+    <h1>Here is second chart==>></h1>
+    <div>
+        <canvas style="max-width: 500px;width:80%;margin:0px auto;"  id="myChart" width="400" height="400"></canvas>
+    </div>
+    <script>
+        const ctx2 = document.getElementById('myChart').getContext('2d');
+        const dondata = {
+            labels: [
+                'Red',
+                'Blue',
+                'Yellow'
+            ],
+            datasets: [{
+                label: 'My First Dataset',
+                data: [300, 50, 100],
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)'
+                ],
+                hoverOffset: 4
+            }]
+        };
+        new Chart(ctx2, {
+            type: 'doughnut',
+            data: dondata,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Doughnut Chart Example'
+                    }
+                }
+            }
+        });
+        const ctx3 = document.getElementById('chart2').getContext('2d');
+        const data2 = {
+            labels: [
+              'Red',
+              'Green',
+              'Yellow',
+              'Grey',
+              'Blue'
+            ],
+            datasets: [{
+              label: 'My First Dataset',
+              data: [11, 16, 7, 3, 24,, 13,14],
+              backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(75, 192, 192)',
+                'rgb(255, 205, 86)',
+                'rgb(201, 203, 207)',
+                'rgb(54, 162, 235)'
+              ]
+            }]
+          };
+          new Chart(ctx3,{
+            type:'polarArea',
+            data:data2,
+            options:{
+                responsive:true,
+                plugins:{
+                    legend:{position:'bottom'},
+                    title:{
+                        text:'My Second Chart On Top',
+                        display:true
+                    }
+                }
+            }
+          })
+    </script>
+</body>
+</html>
